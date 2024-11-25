@@ -4,7 +4,12 @@ from st_aggrid import AgGrid
 import pandas as pd
 
 # Establish a connection to MySQL Server
-mydb = st.connection('mysql', type='sql')
+mydb = mysql.connector.connect(
+    host="localhost",
+    user=st.secrets.db_credentials.username,
+    password=st.secrets.db_credentials.password,
+    database="student_n"
+)
 
 mycursor = mydb.cursor()
 print("Connection Established")
