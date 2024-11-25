@@ -10,6 +10,7 @@ mydb = mysql.connector.connect(
     password=st.secrets.db_credentials.password,
     database="student_n"
 )
+my_db.connect(**st.secrets.db_credentials)
 
 mycursor = mydb.cursor()
 print("Connection Established")
