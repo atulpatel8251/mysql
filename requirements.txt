@@ -1,6 +1,6 @@
 streamlit
 mysql-connector-python
 
-mysqlclient
+
 pandas
 streamlit-aggrid
