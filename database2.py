@@ -3,14 +3,16 @@ import streamlit as st
 from st_aggrid import AgGrid
 import pandas as pd
 
-# Establish a connection to MySQL Server
+mysql_secrets = st.secrets["mysql"]
+
+# Create connection
 mydb = mysql.connector.connect(
-    host="localhost",
-    user=st.secrets.db_credentials.username,
-    password=st.secrets.db_credentials.password,
-    database="student_n"
+    host=mysql_secrets["host"],
+    port=mysql_secrets["port"],
+    user=mysql_secrets["user"],
+    password=mysql_secrets["password"],
+    database=mysql_secrets["database"]
 )
-my_db.connect(**st.secrets.db_credentials)
 
 mycursor = mydb.cursor()
 print("Connection Established")
